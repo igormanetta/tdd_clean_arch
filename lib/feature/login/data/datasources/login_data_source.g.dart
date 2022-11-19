@@ -21,25 +21,27 @@ class _LoginDataSource implements LoginDataSource {
   String? baseUrl;
 
   @override
-  Future<void> login(login) async {
+  Future<AuthModel> login(login) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(login.toJson());
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<AuthModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
-        .compose(
-          _dio.options,
-          'http://ec2-54-226-60-142.compute-1.amazonaws.com:8080/api/v1/auth/token',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
+            .compose(
+              _dio.options,
+              'http://ec2-54-226-60-142.compute-1.amazonaws.com:8080/api/v1/auth/token',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = AuthModel.fromJson(_result.data!);
+    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

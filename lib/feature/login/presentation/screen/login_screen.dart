@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.only(
@@ -25,26 +25,21 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const SizedBox(height: 18),
               const Text('Usuário'),
               const SizedBox(height: 18),
-              Observer(
-                builder: (context) => TextField(
-                  onChanged: _controller.setUsername,
-                ),
+              TextField(
+                onChanged: _controller.setUsername,
               ),
               const SizedBox(height: 18),
               const Text('Senha'),
-              Observer(
-                builder: (context) => TextField(
-                  obscureText: !_controller.showPassword,
-                  onChanged: _controller.setPassword,
-                ),
+              TextField(
+                obscureText: !_controller.showPassword,
+                onChanged: _controller.setPassword,
               ),
-              Observer(
-                builder: (context) => ElevatedButton(
-                  child: const Text('Entrar'),
-                  onPressed: () => _controller.login(context),
-                ),
+              ElevatedButton(
+                child: const Text('Entrar'),
+                onPressed: () => _controller.login(context),
               ),
             ],
           ),

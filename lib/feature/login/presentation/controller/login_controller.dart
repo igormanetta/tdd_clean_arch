@@ -29,11 +29,17 @@ abstract class LoginControllerBase with Store {
   @observable
   bool showPassword = false;
 
-  @action
-  void togglePassword() => showPassword = !showPassword;
-
   Future<void> login(BuildContext context) async {
     final loginModel = LoginModel(username: username, password: password);
-    await _loginUseCase.login(loginModel);
+    var auth = await _loginUseCase.login(loginModel);
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: Text(
+          auth.toString(),
+        ),
+      ),
+    );
   }
 }

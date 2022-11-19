@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/datasources/login_data_source.dart';
+import 'package:mentoria_clean_architecture/feature/login/data/models/auth_model.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/login_model.dart';
 import 'package:mentoria_clean_architecture/feature/login/domain/repositories/login_repository.dart';
 
@@ -10,7 +11,7 @@ class LoginRepositoryImp implements LoginRepository {
   LoginRepositoryImp(this._dataSource);
 
   @override
-  Future<void> login({required LoginModel login}) async {
-    _dataSource.login(login);
+  Future<AuthModel> login(LoginModel login) async {
+    return _dataSource.login(login);
   }
 }

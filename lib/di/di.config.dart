@@ -13,7 +13,7 @@ import '../feature/login/data/repositories/login_repository_imp.dart' as _i5;
 import '../feature/login/domain/repositories/login_repository.dart' as _i4;
 import '../feature/login/domain/usecases/login_use_case.dart' as _i6;
 import '../feature/login/presentation/controller/login_controller.dart' as _i7;
-import 'core_module.dart' as _i8; // ignore_for_file: unnecessary_lambdas
+import 'retrofit_module.dart' as _i8; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -27,8 +27,8 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  final coreModule = _$CoreModule();
-  gh.lazySingleton<_i3.LoginDataSource>(() => coreModule.loginDataSource);
+  final retrofitModule = _$RetrofitModule();
+  gh.lazySingleton<_i3.LoginDataSource>(() => retrofitModule.loginDataSource);
   gh.factory<_i4.LoginRepository>(
       () => _i5.LoginRepositoryImp(get<_i3.LoginDataSource>()));
   gh.factory<_i6.LoginUseCase>(
@@ -38,4 +38,4 @@ _i1.GetIt $initGetIt(
   return get;
 }
 
-class _$CoreModule extends _i8.CoreModule {}
+class _$RetrofitModule extends _i8.RetrofitModule {}

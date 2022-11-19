@@ -83,17 +83,6 @@ mixin _$LoginController on LoginControllerBase, Store {
   }
 
   @override
-  void togglePassword() {
-    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
-        name: 'LoginControllerBase.togglePassword');
-    try {
-      return super.togglePassword();
-    } finally {
-      _$LoginControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 username: ${username},
