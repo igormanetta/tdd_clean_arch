@@ -32,9 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 .fvm
-*.g.dart
-*.freezed.dart
-*.config.dart
+**.g.dart
+**.freezed.dart
+**.config.dart
 
 
 # Web related
