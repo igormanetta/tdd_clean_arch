@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/address_model.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/email_model.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/phone_model.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/user_entity.dart';
 
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';
@@ -32,4 +33,21 @@ class UserModel with _$UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
+
+  static UserEntity userEntityFromModel(UserModel user) => UserEntity(
+        id: user.id,
+        avatarUrl: user.avatarUrl,
+        name: user.name,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        isBlocked: user.isBlocked,
+        isStaff: user.isStaff,
+        isActive: user.isActive,
+        dateJoined: user.dateJoined,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+        emails: EmailModel.emailEntityFromModel(user.emails),
+        phones: PhoneModel.phoneEntityFromModel(user.phones),
+        addresses: AddressModel.addressEntityFromModel(user.addresses),
+      );
 }

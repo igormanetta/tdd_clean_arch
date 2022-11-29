@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mentoria_clean_architecture/di/di.dart';
 
 import 'package:mentoria_clean_architecture/feature/login/presentation/controller/login_controller.dart';

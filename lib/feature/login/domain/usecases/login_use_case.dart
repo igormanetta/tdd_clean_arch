@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:mentoria_clean_architecture/feature/login/data/models/auth_model.dart';
-import 'package:mentoria_clean_architecture/feature/login/data/models/login_model.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/auth_entity.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/login_entity.dart';
 import 'package:mentoria_clean_architecture/feature/login/domain/repositories/login_repository.dart';
 
 @injectable
@@ -9,6 +9,6 @@ class LoginUseCase {
 
   LoginUseCase(this._repository);
 
-  Future<AuthModel> login(LoginModel loginModel) async =>
+  Future<AuthEntity> login(LoginEntity loginModel) async =>
       await _repository.login(loginModel);
 }

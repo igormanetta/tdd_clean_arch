@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/login_model.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/login_entity.dart';
 import 'package:mentoria_clean_architecture/feature/login/domain/usecases/login_use_case.dart';
 import 'package:mobx/mobx.dart';
 
@@ -30,7 +31,7 @@ abstract class LoginControllerBase with Store {
   bool showPassword = false;
 
   Future<void> login(BuildContext context) async {
-    final loginModel = LoginModel(username: username, password: password);
+    final loginModel = LoginEntity(user: username, password: password);
     var auth = await _loginUseCase.login(loginModel);
 
     showDialog(

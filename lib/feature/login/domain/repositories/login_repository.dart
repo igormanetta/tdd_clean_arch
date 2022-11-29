@@ -1,6 +1,6 @@
-import 'package:mentoria_clean_architecture/feature/login/data/models/auth_model.dart';
-import 'package:mentoria_clean_architecture/feature/login/data/models/login_model.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/auth_entity.dart';
+import 'package:mentoria_clean_architecture/feature/login/domain/entities/login_entity.dart';
 
 abstract class LoginRepository {
-  Future<AuthModel> login(LoginModel login);
+  Future<AuthEntity> login(LoginEntity login);
 }
