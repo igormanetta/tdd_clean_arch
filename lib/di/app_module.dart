@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mentoria_clean_architecture/data/constants/constants.dart';
+import 'package:mentoria_clean_architecture/data/constants/constants_api.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/sources/local/login_data_source_local.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/sources/remote/login_data_source_remote.dart';
 
@@ -10,7 +10,7 @@ enum SourceLoginEnum { remote, local }
 abstract class AppModule {
   @prod
   @Named('urlApi')
-  String get urlApiProd => Constants.baseUrl;
+  String get urlApiProd => ConstantsApi.baseUrl;
 
   @dev
   @Named('urlApi')

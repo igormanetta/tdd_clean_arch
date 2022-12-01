@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:mentoria_clean_architecture/data/constants/constants.dart';
+import 'package:mentoria_clean_architecture/data/constants/constants_api.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/sources/login_data_source.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/auth_model.dart';
 import 'package:mentoria_clean_architecture/feature/login/data/models/login_model.dart';
@@ -13,6 +13,6 @@ abstract class LoginDataSourceRemote implements LoginDataSource {
       _LoginDataSourceRemote;
 
   @override
-  @POST(Constants.auth)
+  @POST(ConstantsApi.auth)
   Future<AuthModel> login(@Body() LoginModel login);
 }
