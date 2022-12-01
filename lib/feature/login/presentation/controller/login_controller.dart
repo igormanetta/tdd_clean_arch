@@ -38,7 +38,7 @@ abstract class LoginControllerBase with Store {
       context: context,
       builder: (BuildContext context) => AlertDialog(
         content: Text(
-          auth.toString(),
+          auth.user.firstName,
         ),
       ),
     );

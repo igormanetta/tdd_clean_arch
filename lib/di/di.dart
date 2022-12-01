@@ -9,4 +9,7 @@ final getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: false, // default
 )
-void configureDependencies() => $initGetIt(getIt);
+void configureDependencies(String environment) => $initGetIt(
+      environment: environment,
+      getIt,
+    );
