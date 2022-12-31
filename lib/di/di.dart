@@ -4,6 +4,10 @@ import 'package:mentoria_clean_architecture/di/di.config.dart';
 
 final getIt = GetIt.instance;
 
+const localDataSource = Named('localDataSource');
+
+const remoteDataSource = Named('remoteDataSource');
+
 @InjectableInit(
   initializerName: r'$initGetIt', // default
   preferRelativeImports: true, // default

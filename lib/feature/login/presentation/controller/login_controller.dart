@@ -32,13 +32,36 @@ abstract class LoginControllerBase with Store {
 
   Future<void> login(BuildContext context) async {
     final loginModel = LoginEntity(user: username, password: password);
-    var auth = await _loginUseCase.login(loginModel);
+    final response = await _loginUseCase.login(loginModel);
 
+    response.fold((exception) => _showSnackbar(context, exception.message),
+        (userResponse) => _showDialog(context, userResponse.toString()));
+  }
+
+  void _showDialog(
+    BuildContext context,
+    String message, [
+    bool isError = false,
+  ]) {
     showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(
+        content: Text(message),
+      ),
+    );
+  }
+
+  void _showSnackbar(
+    BuildContext context,
+    String message, [
+    bool isError = false,
+  ]) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 4),
+        behavior: SnackBarBehavior.floating,
         content: Text(
-          auth.user.firstName,
+          message,
         ),
       ),
     );
